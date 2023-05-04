@@ -1,0 +1,50 @@
+{% load static %}
+
+<style>
+h4{
+    color: red;
+}
+</style>
+
+
+<link href="{% static 'assets/css/login.css' %}" rel='stylesheet' type='text/css'>
+
+<div class="login">
+  <h2 class="active"> sign up </h2>
+
+  <form action="register" method="post">
+    {% csrf_token %}
+    
+
+    <input type="text" class="text" name="username">
+     <span>username</span>
+
+    <br>
+    
+    <br>
+
+    <input type="email" class="text" name="email">
+    <span>Email</span>
+    <br>
+    <br>
+    <input type="password" class="text" name="password">
+    <span>password</span>
+    <br>
+    <br>
+    <input type="password" class="text" name="password2">
+    <span>re-enter password</span>
+    <br>
+
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+
+    <button class="signin">
+      create
+    </button>
+
+
+    <hr>
+  </form>
+
+</div>
